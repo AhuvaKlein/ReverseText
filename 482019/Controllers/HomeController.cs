@@ -13,18 +13,22 @@ namespace _482019.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult ReverseText(string text)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            string s= ReverseTextString(text);
+            return Json(s, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Contact()
+        public string ReverseTextString(string text)
         {
-            ViewBag.Message = "Your contact page.";
+            string s = "";
+            for (int i = text.Length - 1; i >= 0; i--)
+            {
+                s += text[i];
+            }
 
-            return View();
+            return s;
         }
+
     }
 }
